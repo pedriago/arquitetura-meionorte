@@ -1,41 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
     
-    // MENU HAMBÚRGUER PARA MOBILE
+    // MENU HAMBÚRGUER (Agora fecha ao clicar em um link)
     function toggleMenu() {
         const navMenu = document.getElementById("nav-menu");
         navMenu.classList.toggle("menu-open");
     }
-    
+
     document.querySelector(".menu-toggle").addEventListener("click", toggleMenu);
+    
+    document.querySelectorAll("#nav-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+            document.getElementById("nav-menu").classList.remove("menu-open");
+        });
+    });
 
     // ROLAGEM SUAVE PARA O TOPO AO CLICAR NA LOGO
     const logo = document.getElementById("logo");
     if (logo) {
         logo.addEventListener("click", function (e) {
             e.preventDefault();
-            smoothScrollTo(0, 1000); // Tempo de rolagem mais suave
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
     }
 
-    function smoothScrollTo(targetPosition, duration) {
-        const startPosition = window.scrollY;
-        const distance = targetPosition - startPosition;
-        let startTime = null;
-
-        function animation(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            const timeElapsed = currentTime - startTime;
-            const progress = Math.min(timeElapsed / duration, 1);
-            window.scrollTo(0, startPosition + distance * progress);
-
-            if (timeElapsed < duration) {
-                requestAnimationFrame(animation);
-            }
-        }
-        requestAnimationFrame(animation);
-    }
-
-    // CARROSSEL DE IMAGENS
+    // CARROSSEL DE IMAGENS (Corrigido para melhor adaptação)
     const imageFolder = "images/carousel/";
     const carouselSlide = document.getElementById("carousel-slide");
     const indicatorsContainer = document.getElementById("carousel-indicators");
@@ -109,5 +97,4 @@ document.addEventListener("DOMContentLoaded", function () {
         // Auto-slide
         setInterval(() => moveSlide(1), 4000);
     }
-
 });
