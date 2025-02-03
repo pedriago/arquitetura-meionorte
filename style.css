@@ -1,4 +1,4 @@
-/* Importando fontes do Google Fonts */
+/* Importação de fontes */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
@@ -13,171 +13,107 @@ html, body {
     background-color: #f4f4f4;
     color: #352616;
     text-align: center;
-    overflow-x: hidden; /* Remove a barra de rolagem horizontal */
+    overflow-x: hidden;
     width: 100%;
-
 }
 
-/* Header - Menu de Navegação */
+/* Header */
 header {
-    background: #f4f4f4; /* Mantém o fundo escuro */
+    background: #f4f4f4;
     position: fixed;
     width: 100%;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     z-index: 1000;
-    padding: 25px 0px; /* Ajuste para dar espaço aos elementos */
+    padding: 20px 0;
 }
 
 .header-container {
-    max-width: 1080px; /* Define o limite da página */
-    height: 50px;
-    margin: 0 auto; /* Centraliza o container, mas não os elementos dentro dele */
+    max-width: 1080px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* Mantém a logo na esquerda e o menu na direita */
-    align-items: center; /* Alinha verticalmente os elementos */
-    padding: 0 0px; /* Garante espaçamento lateral */
+    justify-content: space-between;
+    align-items: center;
 }
 
 #logo {
-    width: 180px; /* Ajuste o tamanho conforme necessário */
-    max-width: 100%;
-    display: block;
-    cursor: pointer; /* Mostra que a logo é clicável */
-}
-
-.header-container a {
-    text-decoration: none; /* Remove qualquer sublinhado padrão */
+    width: 150px;
+    cursor: pointer;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    gap: 15px; /* Espaço entre os itens do menu */
+    gap: 15px;
 }
 
 nav ul li a {
     font-family: 'Roboto', sans-serif;
     color: #E84330;
     text-decoration: none;
-    font-weight: 400;
     font-size: 15px;
 }
 
 nav ul li a:hover {
-    color: #EFD5A4; /* Cor de destaque ao passar o mouse */
+    color: #EFD5A4;
 }
 
-@media screen and (max-width: 768px) {
-    #carousel {
-        height: 300px; /* Reduz a altura do carrossel */
-    }
-
-    .carousel-container {
-        height: 100%; /* Garante que o carrossel se ajuste */
-    }
-
-    .carousel-slide img {
-        object-fit: contain; /* Faz a imagem caber sem cortar */
-        max-height: 100%; /* Ajusta dinamicamente */
-        width: 100%; /* Mantém a proporção */
-    }
-}
-
+/* Carrossel */
 #carousel {
     position: relative;
     max-width: 1080px;
     height: 720px;
-    margin: 0px auto; /* Ajuste conforme necessário */
-    top: 125px;
-    overflow: hidden; /* Evita que as imagens saiam da área do carrossel */
-    border-radius: 0px;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    padding: 0px 0;
+    margin: 125px auto 0;
+    overflow: hidden;
 }
 
-/* Container do Carrossel */
 .carousel-container {
     width: 100%;
-    overflow: hidden;
-    position: relative;
-    max-width: 1080px;
-    height: 720px;
-
-}
-
-/* Slide do Carrossel */
-.carousel-slide {
-    position: relative;
-    width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
-/* Imagens do Carrossel */
 .carousel-slide img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: auto;
-    object-fit: cover; /* Mantém a proporção */
-    opacity: 0; /* Esconde todas as imagens */
-    transition: opacity 1s ease-in-out; /* Efeito de fade */
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-/* Apenas a imagem ativa será visível */
 .carousel-slide img.active {
     opacity: 1;
-    z-index: 1;
 }
 
-/* Container dos Indicadores */
 .carousel-indicators {
     display: flex;
     justify-content: center;
-    position: absolute; /* Garante que fique sobre o carrossel */
-    bottom: 10px; /* Ajuste a posição abaixo das imagens */
+    position: absolute;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10; /* Garante que fique acima das imagens */
 }
 
-/* Barrinhas indicadoras */
 .indicator {
     width: 30px;
     height: 2px;
-    background: rgba(255, 255, 255, 0.6); /* Barras visíveis sobre as imagens */
+    background: rgba(255, 255, 255, 0.6);
     margin: 5px;
-    user-select: none; /* Impede seleção de texto */
-    outline: none; /* Remove a borda de foco */
-    cursor: pointer; /* Mantém o cursor de clique padrão */
-    transition: background 0.3s;
+    cursor: pointer;
 }
 
-/* Barrinha ativa */
 .indicator.active {
-    background: #E84330; /* Destaque para a imagem atual */
+    background: #E84330;
 }
 
 /* Seção Hero */
 #hero {
-    color: #352616; 
-    width: 1080px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Aproxima do topo */
-    align-items: flex-end; /* Alinha tudo à direita */
+    max-width: 1080px;
+    margin: 200px auto 50px;
     text-align: right;
-    padding: 0px 2.5% 0px 2.5%; /* Ajuste fino para evitar extravasar */
-    max-width: 1080px; /* Mantém o conteúdo dentro do wrapper */
-    margin-top: 225px; /* Cria espaço acima do Hero */
-    margin-left: auto; /* Alinha o conteúdo ao lado direito */
+    padding: 0 5%;
 }
 
-/* Título Hero (Alinhado à Direita, Com Uma Palavra Por Linha) */
 #hero h2 {
     font-size: 3em;
     font-weight: 700;
@@ -188,68 +124,54 @@ nav ul li a:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: brilhoGradiente 4s infinite alternate ease-in-out;
-    margin-bottom: 0px;
     display: flex;
-    flex-direction: column; /* Cada palavra em uma linha */
-    align-items: flex-end;
-    text-align: right;
+    flex-direction: column;
 }
 
-/* Animação do Gradiente no Título */
 @keyframes brilhoGradiente {
     0% { background-position: 0% center; }
     100% { background-position: 100% center; }
 }
 
-/* Texto Hero (Alinhado à Direita, Com Fonte Poppins Light) */
 #hero p {
     font-family: 'Poppins', sans-serif;
-    font-weight: 300; /* Poppins Light */
+    font-weight: 300;
     color: #352616;
     font-size: 1.2em;
-    max-width: 360px; /* Mantém alinhado e organizado */
+    max-width: 360px;
     line-height: 1.6;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
-/* Botão Hero */
 .hero-btn {
-    background: linear-gradient(to right, #E84330, #BF3025); /* Degradê elegante */
+    background: linear-gradient(to right, #E84330, #BF3025);
     color: white;
-    padding: 25px 30px;
-    font-size: 1.5em;
-    font-weight: auto;
+    padding: 15px 30px;
+    font-size: 1.2em;
     text-decoration: none;
-    border-radius: 0px; /* Deixa o botão mais sofisticado */
+    border-radius: 5px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
     margin-top: 25px;
-    margin-bottom:60px;
 }
 
 .hero-btn:hover {
-    background: linear-gradient(to right, #BF3025, #E84330); /* Inverte o gradiente no hover */
-    transform: scale(1.05); /* Dá um efeito de crescimento ao passar o mouse */
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
 }
 
-/* Próxima seção - Projetos destacados */
+/* Seção Projetos Destacados */
 #next-section {
+    max-width: 1080px;
+    margin: 50px auto;
     display: flex;
-    max-width: 1080px; /* Mantém alinhado ao wrapper principal */
-    width: 100%;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
-    text-align: center;
-    gap: 50px;
-    margin-bottom: 60px;
 }
 
-/* Texto Alinhado à Esquerda */
 .text-container {
     flex: 1;
     text-align: left;
-    max-width: 320px;
+    max-width: 400px;
     padding-left: 50px;
 }
 
@@ -260,417 +182,154 @@ nav ul li a:hover {
 }
 
 .text-container p {
-    font-size: 1.0em;
+    font-size: 1.1em;
     color: #352616;
     line-height: 1.6;
 }
 
-/* Imagem Alinhada à Direita */
 .image-container {
     flex: 1;
     display: flex;
-    justify-content: flex-end; /* Mantém alinhado à direita */
+    justify-content: flex-end;
 }
 
 .image-container img {
-    width: 100%; /* Mantém a proporção responsiva */
-    max-width: 540px; /* Evita que fique muito grande */
-    height: 700px;
-    border-radius: 0px; /* Cantos arredondados para um visual sofisticado */
+    max-width: 500px;
+    height: auto;
 }
 
-#next-section h2 {
-    font-size: 1.5em;
-    font-weight: 400;
-    color: #E84330; /* Cor em harmonia com o layout */
-    margin-bottom: 15px;
-}
-
-#next-section p {
-    font-size: 1.2em;
-    color: #352616;
-    max-width: 700px;
-    line-height: 1.6;
-    margin: 0 auto;
-}
-
-/* Última Seção (SOBRE) com Background */
-
-/* Background seção SOBRE */
-
-.content-wrapper {
-    width: 100vw; /* Ocupa toda a largura da tela */
-    min-height: 700px; /* Garante que tenha pelo menos o tamanho da tela */
-    background: #EFD5A4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* Seção Sobre */
 #sobre {
-    width: 100%;
-    max-width: 1080px; /* Mantém dentro do wrapper */
+    max-width: 1080px;
+    margin: 50px auto;
     display: flex;
-    flex-direction: row; /* Garante que imagem e texto fiquem lado a lado */
     justify-content: space-between;
     align-items: center;
-    padding: 0px 2.5% 0px 0%; /* Ajuste fino para evitar extravasar */
-    text-align: right;
-    flex-wrap: wrap; /* Permite ajuste responsivo */
-    margin: 0 auto; /* Centraliza o conteúdo dentro do wrapper */
+    padding: 50px 5%;
 }
 
-/* Estilização do Texto */
-#sobre .text-container {
-    flex: 1;
-    text-align: right;
-    max-width: 500px;
-}
-
-/* Alinhamento Correto do h2 */
-#sobre .text-container h2 {
+#sobre h2 {
     font-size: 3em;
-    font-weight: 700;
-    max-width: 520px; /* Garante que não ultrapasse o wrapper */
-    background: linear-gradient(to right, #E84330, #352616, #E84330);
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: brilhoGradiente 4s infinite alternate ease-in-out;
     text-align: right;
     display: flex;
-    flex-direction: column; /* Faz cada palavra aparecer em uma linha separada */
+    flex-direction: column;
 }
 
-/* Alinhamento Correto do p */
-#sobre .text-container p {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300; /* Poppins Light */
-    color: #352616;
+#sobre p {
     font-size: 1.2em;
-    max-width: 520px; /* Mantém alinhado e organizado */
-    line-height: 1.6;
-    margin-top: 0px;
     text-align: right;
 }
 
-/* Estilização da Imagem */
-#sobre .image-container {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start; /* Mantém a imagem alinhada à esquerda */
-    min-width: 50%; /* Mantém a imagem ocupando metade da largura */
-}
-
-#sobre .image-container img {
-    width: 100%;
-    max-width: 450px; /* Evita que fique muito grande */
-    height: auto;
-    border-radius: 0px; /* Sem cantos arredondados */
-}
-
-/* Seções Gerais */
-section {
-    padding: 50px 0px;
-    max-width: 1080px;
-    margin: auto;
-}
-
-/* Estilização do Rodapé */
+/* Rodapé */
 footer {
     background: #352616;
-    height: 115px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 20px 0;
     color: white;
 }
 
-/* Estrutura Principal do Rodapé */
 .footer-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     max-width: 1080px;
-    width: 100%;
     margin: 0 auto;
-}
-
-/* Informações de Contato (Alinhado à Esquerda) */
-.footer-contact {
-    flex: 1;
-    text-align: left;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.footer-contact p {
-    margin: 0px 0;
-    line-height: 1.2;
-}
-
-.footer-contact a {
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.7em;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-.footer-contact a:hover {
-    color: #E84330;
-}
-
-/* Logo + Redes Sociais (Centralizado) */
-.footer-logo {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza tudo */
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer-logo img {
     width: 100px;
     filter: brightness(0) invert(1);
-    max-height: 80px;
-    margin-bottom: 5px;
 }
 
-/* Barra Separadora */
-.footer-separator {
-    width: 100%;
-    height: .7px;
-    background: white;
-    margin: 5px 0;
+.footer-contact {
+    text-align: left;
+    font-size: 0.8em;
 }
 
-/* Redes Sociais (Agora visíveis e centralizados) */
 .footer-social {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
+    gap: 15px;
 }
 
 .footer-social a {
     color: white;
     font-size: 1.2em;
-    transition: color 0.3s ease-in-out;
-    text-decoration: none;
 }
 
 .footer-social a:hover {
     color: #E84330;
 }
 
-/* Texto Abaixo dos Ícones das Redes Sociais */
-.footer-social-text {
-    font-size: 0.7em;
-    margin-top: 2.5px;
-    opacity: 0.8;
-}
-
-/* Direitos Autorais (Alinhado à Direita) */
-.footer-bottom {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.7em;
-    opacity: 0.8;
-}
-
-html {
-    scroll-behavior: smooth; /* Ativa a rolagem suave */
-}
-
-/* Ajuste do menu para dispositivos menores */
+/* Responsividade */
 @media screen and (max-width: 768px) {
-    /* Garante que cada seção fique bem espaçada */
-    .scroll-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-    }
-
-    /* Centraliza melhor os botões e textos */
-    .btn {
-        display: block;
-        width: 80%;
-        max-width: 300px;
-        margin: 20px auto;
-    }
-
-/* MENU HAMBÚRGUER PARA MOBILE */
-.menu-toggle {
-    display: none;
-    font-size: 30px;
-    color: #E84330;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-    
-    .page-wrapper, .content-wrapper {
-        width: 100%;
-        padding: 0 15px; /* Mantém espaçamento */
-    }
-
-    /* Faz o conteúdo ocupar toda a largura */
-    .page-wrapper, .content-wrapper {
-        width: 100%;
-        padding: 0 20px; /* Adiciona espaçamento nas laterais */
-    }
-
-    /* Ajusta o menu de navegação */
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    nav ul li {
-        margin: 10px 0; /* Dá mais espaço entre os itens do menu */
-    }
-
-    /* Ajusta o header */
+    /* Ajuste do header */
     .header-container {
         flex-direction: column;
         align-items: center;
     }
 
-    /* Ajusta as imagens para não ficarem muito grandes */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* Ajusta o texto das seções para caber melhor na tela */
-    .scroll-section {
-        padding: 50px 20px;
-        text-align: center; /* Centraliza tudo no mobile */
-    }
-
-    .scroll-section h2 {
-        font-size: 2em; /* Reduz o tamanho do título */
-    }
-
-    .scroll-section p {
-        font-size: 1em; /* Reduz o tamanho do texto */
-    }
-
-    /* Ajusta o Carrossel */
     #carousel {
-        height: 400px; /* Reduz a altura no celular */
+        height: 300px;
     }
 
-    /* Ajusta o rodapé */
-    .footer-container {
+    .carousel-slide img {
+        object-fit: contain;
+        max-height: 100%;
+    }
+
+    /* Ajuste do Hero */
+    #hero {
+        text-align: center;
+        padding: 0 10%;
+        margin-top: 150px;
+    }
+
+    #hero h2 {
+        font-size: 2.2em;
+        text-align: center;
+    }
+
+    #hero p {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    /* Seção Projetos Destacados */
+    #next-section {
         flex-direction: column;
         text-align: center;
     }
 
-    .footer-logo, .footer-contact, .footer-bottom {
-        margin-bottom: 15px; /* Dá um respiro entre os itens */
-    }
-
-    /* Imagens ficam abaixo dos textos */
-    .image-container {
-        order: 2;
-    }
-
     .text-container {
-        order: 1;
-    }
-
-    .scroll-section h2 {
-        font-size: 2em;
-    }
-
-    .scroll-section p {
-        font-size: 1em;
-    }
-
-    /* Ajuste dos títulos e textos para não ficarem muito grandes */
-    h2 {
-        font-size: 2em;
-        word-wrap: break-word;
-    }
-
-    p {
-        font-size: 1em;
-        line-height: 1.6;
-    }
-
-    /* Ajuste das imagens para não ficarem gigantes */
-    img {
         max-width: 100%;
-        height: auto;
-    }
-
-    /* Ajuste do Carrossel */
-    #carousel {
-        height: 350px; /* Reduz a altura no mobile */
-    }
-
-    /* Ajuste do rodapé */
-    .footer {
-        position: relative;
-        width: 100%;
-        clear: both;
-    }
-    .footer-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;        
         padding: 20px;
     }
 
-    .footer-logo, .footer-contact, .footer-bottom {
-        width: 100%;
-        margin-bottom: 15px;
+    .image-container {
+        justify-content: center;
+    }
+
+    .image-container img {
+        max-width: 100%;
+    }
+
+    /* Seção Sobre */
+    #sobre {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #sobre h2, #sobre p {
+        text-align: center;
+    }
+
+    /* Ajuste do Rodapé */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
     }
 
     .footer-social {
         flex-direction: row;
         justify-content: center;
-    }
-    
-    nav ul {
-        display: none; /* Oculta o menu padrão */
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: #352616;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    nav ul li {
-        padding: 10px 0;
-    }
-
-    nav ul li a {
-        color: white;
-        font-size: 18px;
-    }
-
-    .menu-toggle {
-        display: block; /* Exibe o botão de menu no mobile */
-    }
-
-    .menu-open {
-        display: flex; /* Exibe o menu ao clicar */
     }
 }
