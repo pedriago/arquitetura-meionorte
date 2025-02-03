@@ -70,6 +70,22 @@ nav ul li a:hover {
     color: #EFD5A4; /* Cor de destaque ao passar o mouse */
 }
 
+@media screen and (max-width: 768px) {
+    #carousel {
+        height: 300px; /* Reduz a altura do carrossel */
+    }
+
+    .carousel-container {
+        height: 100%; /* Garante que o carrossel se ajuste */
+    }
+
+    .carousel-slide img {
+        object-fit: contain; /* Faz a imagem caber sem cortar */
+        max-height: 100%; /* Ajusta dinamicamente */
+        width: 100%; /* Mantém a proporção */
+    }
+}
+
 #carousel {
     position: relative;
     max-width: 1080px;
@@ -533,6 +549,22 @@ html {
     }
 }
 
+@media screen and (max-width: 768px) {
+    /* Garante que cada seção fique bem espaçada */
+    .scroll-section {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    /* Centraliza melhor os botões e textos */
+    .btn {
+        display: block;
+        width: 80%;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+}
+
 /* MENU HAMBÚRGUER PARA MOBILE */
 .menu-toggle {
     display: none;
@@ -586,8 +618,19 @@ html {
     /* Centraliza o conteúdo das seções */
     .scroll-section {
         padding: 50px 20px;
+        display: flex;
         text-align: center;
         flex-direction: column;
+        text-align: center;
+    }
+
+    /* Imagens ficam abaixo dos textos */
+    .image-container {
+        order: 2;
+    }
+
+    .text-container {
+        order: 1;
     }
 
     .scroll-section h2 {
@@ -596,6 +639,16 @@ html {
 
     .scroll-section p {
         font-size: 1em;
+    }
+
+    /* Ajuste dos títulos e textos para não ficarem muito grandes */
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+        line-height: 1.6;
     }
 
     /* Ajuste das imagens para não ficarem gigantes */
@@ -612,10 +665,16 @@ html {
     /* Ajuste do rodapé */
     .footer-container {
         flex-direction: column;
-        text-align: center;
+        text-align: center;        
+        padding: 20px;
     }
 
     .footer-logo, .footer-contact, .footer-bottom {
+        width: 100%;
         margin-bottom: 15px;
+    }
+    .footer-social {
+        flex-direction: row;
+        justify-content: center;
     }
 }
