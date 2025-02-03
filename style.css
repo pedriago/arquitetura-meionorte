@@ -602,6 +602,7 @@ html {
     /* Ajuste dos títulos e textos para não ficarem muito grandes */
     h2 {
         font-size: 2em;
+        word-wrap: break-word;
     }
 
     p {
@@ -621,8 +622,15 @@ html {
     }
 
     /* Ajuste do rodapé */
+    .footer {
+        position: relative;
+        width: 100%;
+        clear: both;
+    }
     .footer-container {
+        display: flex;
         flex-direction: column;
+        align-items: center;
         text-align: center;        
         padding: 20px;
     }
@@ -665,5 +673,4 @@ html {
     .menu-open {
         display: flex; /* Exibe o menu ao clicar */
     }
-}
 }
