@@ -1,0 +1,473 @@
+/* Importando fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #352616;
+    text-align: center;
+    overflow-x: hidden; /* Remove a barra de rolagem horizontal */
+    width: 100%;
+
+}
+
+/* Header - Menu de Navegação */
+header {
+    background: #f4f4f4; /* Mantém o fundo escuro */
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    padding: 25px 0px; /* Ajuste para dar espaço aos elementos */
+}
+
+.header-container {
+    max-width: 1080px; /* Define o limite da página */
+    height: 50px;
+    margin: 0 auto; /* Centraliza o container, mas não os elementos dentro dele */
+    display: flex;
+    justify-content: space-between; /* Mantém a logo na esquerda e o menu na direita */
+    align-items: center; /* Alinha verticalmente os elementos */
+    padding: 0 0px; /* Garante espaçamento lateral */
+}
+
+#logo {
+    width: 180px; /* Ajuste o tamanho conforme necessário */
+    max-width: 100%;
+    display: block;
+    cursor: pointer; /* Mostra que a logo é clicável */
+}
+
+.header-container a {
+    text-decoration: none; /* Remove qualquer sublinhado padrão */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px; /* Espaço entre os itens do menu */
+}
+
+nav ul li a {
+    font-family: 'Roboto', sans-serif;
+    color: #E84330;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+nav ul li a:hover {
+    color: #EFD5A4; /* Cor de destaque ao passar o mouse */
+}
+
+#carousel {
+    position: relative;
+    max-width: 1080px;
+    height: 720px;
+    margin: 0px auto; /* Ajuste conforme necessário */
+    top: 125px;
+    overflow: hidden; /* Evita que as imagens saiam da área do carrossel */
+    border-radius: 0px;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 0px 0;
+}
+
+/* Container do Carrossel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1080px;
+    height: 720px;
+    overflow: hidden;
+}
+
+/* Slide do Carrossel */
+.carousel-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Imagens do Carrossel */
+.carousel-slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém a proporção */
+    opacity: 0; /* Esconde todas as imagens */
+    transition: opacity 1s ease-in-out; /* Efeito de fade */
+}
+
+/* Apenas a imagem ativa será visível */
+.carousel-slide img.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Container dos Indicadores */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute; /* Garante que fique sobre o carrossel */
+    bottom: 10px; /* Ajuste a posição abaixo das imagens */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Garante que fique acima das imagens */
+}
+
+/* Barrinhas indicadoras */
+.indicator {
+    width: 30px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.6); /* Barras visíveis sobre as imagens */
+    margin: 5px;
+    user-select: none; /* Impede seleção de texto */
+    outline: none; /* Remove a borda de foco */
+    cursor: pointer; /* Mantém o cursor de clique padrão */
+    transition: background 0.3s;
+}
+
+/* Barrinha ativa */
+.indicator.active {
+    background: #E84330; /* Destaque para a imagem atual */
+}
+
+/* Seção Hero */
+#hero {
+    color: #352616; 
+    width: 1080px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Aproxima do topo */
+    align-items: flex-end; /* Alinha tudo à direita */
+    text-align: right;
+    padding: 0px 2.5% 0px 2.5%; /* Ajuste fino para evitar extravasar */
+    max-width: 1080px; /* Mantém o conteúdo dentro do wrapper */
+    margin-top: 225px; /* Cria espaço acima do Hero */
+    margin-left: auto; /* Alinha o conteúdo ao lado direito */
+}
+
+/* Título Hero (Alinhado à Direita, Com Uma Palavra Por Linha) */
+#hero h2 {
+    font-size: 3em;
+    font-weight: 700;
+    max-width: 560px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #E84330, #352616, #E84330);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: brilhoGradiente 4s infinite alternate ease-in-out;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column; /* Cada palavra em uma linha */
+    align-items: flex-end;
+    text-align: right;
+}
+
+/* Animação do Gradiente no Título */
+@keyframes brilhoGradiente {
+    0% { background-position: 0% center; }
+    100% { background-position: 100% center; }
+}
+
+/* Texto Hero (Alinhado à Direita, Com Fonte Poppins Light) */
+#hero p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; /* Poppins Light */
+    color: #352616;
+    font-size: 1.2em;
+    max-width: 360px; /* Mantém alinhado e organizado */
+    line-height: 1.6;
+    margin-top: 25px;
+}
+
+/* Botão Hero */
+.hero-btn {
+    background: linear-gradient(to right, #E84330, #BF3025); /* Degradê elegante */
+    color: white;
+    padding: 25px 30px;
+    font-size: 1.5em;
+    font-weight: auto;
+    text-decoration: none;
+    border-radius: 0px; /* Deixa o botão mais sofisticado */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    margin-top: 25px;
+    margin-bottom:60px;
+}
+
+.hero-btn:hover {
+    background: linear-gradient(to right, #BF3025, #E84330); /* Inverte o gradiente no hover */
+    transform: scale(1.05); /* Dá um efeito de crescimento ao passar o mouse */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Próxima seção - Projetos destacados */
+#next-section {
+    display: flex;
+    max-width: 1080px; /* Mantém alinhado ao wrapper principal */
+    width: 100%;
+    align-items:center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+/* Texto Alinhado à Esquerda */
+.text-container {
+    flex: 1;
+    text-align: left;
+    max-width: 320px;
+    padding-left: 50px;
+}
+
+.text-container h2 {
+    font-size: 2.5em;
+    color: #E84330;
+    margin-bottom: 20px;
+}
+
+.text-container p {
+    font-size: 1.0em;
+    color: #352616;
+    line-height: 1.6;
+}
+
+/* Imagem Alinhada à Direita */
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Mantém alinhado à direita */
+}
+
+.image-container img {
+    width: 100%; /* Mantém a proporção responsiva */
+    max-width: 540px; /* Evita que fique muito grande */
+    height: 700px;
+    border-radius: 0px; /* Cantos arredondados para um visual sofisticado */
+}
+
+#next-section h2 {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #E84330; /* Cor em harmonia com o layout */
+    margin-bottom: 15px;
+}
+
+#next-section p {
+    font-size: 1.2em;
+    color: #352616;
+    max-width: 700px;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+
+/* Última Seção (SOBRE) com Background */
+
+/* Background seção SOBRE */
+
+.content-wrapper {
+    width: 100vw; /* Ocupa toda a largura da tela */
+    min-height: 700px; /* Garante que tenha pelo menos o tamanho da tela */
+    background: #EFD5A4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sobre {
+    width: 100%;
+    max-width: 1080px; /* Mantém dentro do wrapper */
+    display: flex;
+    flex-direction: row; /* Garante que imagem e texto fiquem lado a lado */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 2.5% 0px 0%; /* Ajuste fino para evitar extravasar */
+    text-align: right;
+    flex-wrap: wrap; /* Permite ajuste responsivo */
+    margin: 0 auto; /* Centraliza o conteúdo dentro do wrapper */
+}
+
+/* Estilização do Texto */
+#sobre .text-container {
+    flex: 1;
+    text-align: right;
+    max-width: 500px;
+}
+
+/* Alinhamento Correto do h2 */
+#sobre .text-container h2 {
+    font-size: 3em;
+    font-weight: 700;
+    max-width: 520px; /* Garante que não ultrapasse o wrapper */
+    background: linear-gradient(to right, #E84330, #352616, #E84330);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: brilhoGradiente 4s infinite alternate ease-in-out;
+    text-align: right;
+    display: flex;
+    flex-direction: column; /* Faz cada palavra aparecer em uma linha separada */
+}
+
+/* Alinhamento Correto do p */
+#sobre .text-container p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; /* Poppins Light */
+    color: #352616;
+    font-size: 1.2em;
+    max-width: 520px; /* Mantém alinhado e organizado */
+    line-height: 1.6;
+    margin-top: 0px;
+    text-align: right;
+}
+
+/* Estilização da Imagem */
+#sobre .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Mantém a imagem alinhada à esquerda */
+    min-width: 50%; /* Mantém a imagem ocupando metade da largura */
+}
+
+#sobre .image-container img {
+    width: 100%;
+    max-width: 450px; /* Evita que fique muito grande */
+    height: auto;
+    border-radius: 0px; /* Sem cantos arredondados */
+}
+
+/* Seções Gerais */
+section {
+    padding: 50px 0px;
+    max-width: 1080px;
+    margin: auto;
+}
+
+/* Estilização do Rodapé */
+footer {
+    background: #352616;
+    height: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Estrutura Principal do Rodapé */
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1080px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Informações de Contato (Alinhado à Esquerda) */
+.footer-contact {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.footer-contact p {
+    margin: 0px 0;
+    line-height: 1.2;
+}
+
+.footer-contact a {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.7em;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-contact a:hover {
+    color: #E84330;
+}
+
+/* Logo + Redes Sociais (Centralizado) */
+.footer-logo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza tudo */
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 100px;
+    filter: brightness(0) invert(1);
+    max-height: 80px;
+    margin-bottom: 5px;
+}
+
+/* Barra Separadora */
+.footer-separator {
+    width: 100%;
+    height: .7px;
+    background: white;
+    margin: 5px 0;
+}
+
+/* Redes Sociais (Agora visíveis e centralizados) */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 1.2em;
+    transition: color 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: #E84330;
+}
+
+/* Texto Abaixo dos Ícones das Redes Sociais */
+.footer-social-text {
+    font-size: 0.7em;
+    margin-top: 2.5px;
+    opacity: 0.8;
+}
+
+/* Direitos Autorais (Alinhado à Direita) */
+.footer-bottom {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.7em;
+    opacity: 0.8;
+}
+
+html {
+    scroll-behavior: smooth; /* Ativa a rolagem suave */
+}
