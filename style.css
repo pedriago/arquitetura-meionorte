@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4;
     color: #352616;
@@ -470,4 +470,152 @@ footer {
 
 html {
     scroll-behavior: smooth; /* Ativa a rolagem suave */
+}
+
+/* RESPONSIVIDADE: Ajustes para Telas Pequenas (Celulares) */
+@media screen and (max-width: 768px) {
+    /* Faz o conteúdo ocupar toda a largura */
+    .page-wrapper, .content-wrapper {
+        width: 100%;
+        padding: 0 20px; /* Adiciona espaçamento nas laterais */
+    }
+
+    /* Ajusta o menu de navegação */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Dá mais espaço entre os itens do menu */
+    }
+
+    /* Ajusta o header */
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Ajusta as imagens para não ficarem muito grandes */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Ajusta o texto das seções para caber melhor na tela */
+    .scroll-section {
+        padding: 50px 20px;
+        text-align: center; /* Centraliza tudo no mobile */
+    }
+
+    .scroll-section h2 {
+        font-size: 2em; /* Reduz o tamanho do título */
+    }
+
+    .scroll-section p {
+        font-size: 1em; /* Reduz o tamanho do texto */
+    }
+
+    /* Ajusta o Carrossel */
+    #carousel {
+        height: 400px; /* Reduz a altura no celular */
+    }
+
+    /* Ajusta o rodapé */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo, .footer-contact, .footer-bottom {
+        margin-bottom: 15px; /* Dá um respiro entre os itens */
+    }
+}
+
+/* MENU HAMBÚRGUER PARA MOBILE */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: #E84330;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Ajuste do menu para dispositivos menores */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none; /* Oculta o menu padrão */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #352616;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        color: white;
+        font-size: 18px;
+    }
+
+    .menu-toggle {
+        display: block; /* Exibe o botão de menu no mobile */
+    }
+
+    .menu-open {
+        display: flex; /* Exibe o menu ao clicar */
+    }
+}
+
+/* Ajuste para telas menores */
+@media screen and (max-width: 768px) {
+    .page-wrapper, .content-wrapper {
+        width: 100%;
+        padding: 0 15px; /* Mantém espaçamento */
+    }
+
+    /* Centraliza o conteúdo das seções */
+    .scroll-section {
+        padding: 50px 20px;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .scroll-section h2 {
+        font-size: 2em;
+    }
+
+    .scroll-section p {
+        font-size: 1em;
+    }
+
+    /* Ajuste das imagens para não ficarem gigantes */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Ajuste do Carrossel */
+    #carousel {
+        height: 350px; /* Reduz a altura no mobile */
+    }
+
+    /* Ajuste do rodapé */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo, .footer-contact, .footer-bottom {
+        margin-bottom: 15px;
+    }
 }

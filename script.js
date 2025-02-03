@@ -30,6 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+function toggleMenu() {
+    const navMenu = document.querySelector("nav ul");
+    navMenu.classList.toggle("menu-open");
+}
+
 //carrosel
 
 document.addEventListener("DOMContentLoaded", function () {
