@@ -1,12 +1,19 @@
-//retorno para o começo da página
-
 document.addEventListener("DOMContentLoaded", function () {
-    const logo = document.getElementById("logo"); // Seleciona a logo
+    
+    // MENU HAMBÚRGUER PARA MOBILE
+    function toggleMenu() {
+        const navMenu = document.getElementById("nav-menu");
+        navMenu.classList.toggle("menu-open");
+    }
+    
+    document.querySelector(".menu-toggle").addEventListener("click", toggleMenu);
 
+    // ROLAGEM SUAVE PARA O TOPO AO CLICAR NA LOGO
+    const logo = document.getElementById("logo");
     if (logo) {
         logo.addEventListener("click", function (e) {
-            e.preventDefault(); // Evita comportamento padrão
-            smoothScrollTo(0, 1200); // Agora a rolagem será mais suave (1200ms)
+            e.preventDefault();
+            smoothScrollTo(0, 1000); // Tempo de rolagem mais suave
         });
     }
 
@@ -25,24 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 requestAnimationFrame(animation);
             }
         }
-
         requestAnimationFrame(animation);
     }
-});
 
-function toggleMenu() {
-    const navMenu = document.querySelector("nav ul");
-    navMenu.classList.toggle("menu-open");
-}
-
-//carrosel
-
-document.addEventListener("DOMContentLoaded", function () {
-    const imageFolder = "images/carousel/"; // Caminho da pasta das imagens
+    // CARROSSEL DE IMAGENS
+    const imageFolder = "images/carousel/";
     const carouselSlide = document.getElementById("carousel-slide");
     const indicatorsContainer = document.getElementById("carousel-indicators");
 
-    // Lista de imagens
     const imageList = [
         "aquino-soares-fachada.webp",
         "casa-m2.webp",
@@ -61,16 +58,16 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     if (carouselSlide) {
-        let slideIndex = 0; // Índice da imagem atual
+        let slideIndex = 0;
         const slides = [];
 
-        // Criar as imagens dinamicamente
+        // Criar imagens dinamicamente
         imageList.forEach((image, index) => {
             let imgElement = document.createElement("img");
             imgElement.src = imageFolder + image;
             imgElement.alt = "Projeto Arquitetônico";
             imgElement.classList.add("carousel-image");
-            if (index === 0) imgElement.classList.add("active"); // Apenas a primeira visível
+            if (index === 0) imgElement.classList.add("active");
             carouselSlide.appendChild(imgElement);
             slides.push(imgElement);
         });
@@ -82,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function moveSlide(direction) {
-            slides[slideIndex].classList.remove("active"); // Remove a classe ativa da imagem atual
+            slides[slideIndex].classList.remove("active");
 
             slideIndex += direction;
             if (slideIndex < 0) {
@@ -91,16 +88,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 slideIndex = 0;
             }
 
-            slides[slideIndex].classList.add("active"); // Adiciona a classe ativa na nova imagem
-
-            updateIndicators(); // Atualiza os indicadores
+            slides[slideIndex].classList.add("active");
+            updateIndicators();
         }
 
-        // Criar os indicadores dinamicamente
+        // Criar indicadores dinamicamente
         imageList.forEach((_, index) => {
             let indicator = document.createElement("div");
             indicator.classList.add("indicator");
-            if (index === 0) indicator.classList.add("active"); // Primeiro começa ativo
+            if (index === 0) indicator.classList.add("active");
             indicator.addEventListener("click", () => {
                 slides[slideIndex].classList.remove("active");
                 slideIndex = index;
@@ -110,10 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
             indicatorsContainer.appendChild(indicator);
         });
 
-        // Auto-slide (opcional)
+        // Auto-slide
         setInterval(() => moveSlide(1), 4000);
-    } else {
-        console.error("Elemento #carousel-slide não encontrado!");
     }
-    
+
 });
