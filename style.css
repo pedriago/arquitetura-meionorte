@@ -101,11 +101,12 @@ nav ul li a:hover {
 
 /* Container do Carrossel */
 .carousel-container {
-    position: relative;
     width: 100%;
+    overflow: hidden;
+    position: relative;
     max-width: 1080px;
     height: 720px;
-    overflow: hidden;
+
 }
 
 /* Slide do Carrossel */
@@ -121,7 +122,7 @@ nav ul li a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover; /* Mantém a proporção */
     opacity: 0; /* Esconde todas as imagens */
     transition: opacity 1s ease-in-out; /* Efeito de fade */
@@ -488,8 +489,41 @@ html {
     scroll-behavior: smooth; /* Ativa a rolagem suave */
 }
 
-/* RESPONSIVIDADE: Ajustes para Telas Pequenas (Celulares) */
+/* Ajuste do menu para dispositivos menores */
 @media screen and (max-width: 768px) {
+    /* Garante que cada seção fique bem espaçada */
+    .scroll-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Centraliza melhor os botões e textos */
+    .btn {
+        display: block;
+        width: 80%;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+
+/* MENU HAMBÚRGUER PARA MOBILE */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: #E84330;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+    
+    .page-wrapper, .content-wrapper {
+        width: 100%;
+        padding: 0 15px; /* Mantém espaçamento */
+    }
+
     /* Faz o conteúdo ocupar toda a largura */
     .page-wrapper, .content-wrapper {
         width: 100%;
@@ -547,82 +581,6 @@ html {
     .footer-logo, .footer-contact, .footer-bottom {
         margin-bottom: 15px; /* Dá um respiro entre os itens */
     }
-}
-
-@media screen and (max-width: 768px) {
-    /* Garante que cada seção fique bem espaçada */
-    .scroll-section {
-        padding: 60px 20px;
-        text-align: center;
-    }
-
-    /* Centraliza melhor os botões e textos */
-    .btn {
-        display: block;
-        width: 80%;
-        max-width: 300px;
-        margin: 20px auto;
-    }
-}
-
-/* MENU HAMBÚRGUER PARA MOBILE */
-.menu-toggle {
-    display: none;
-    font-size: 30px;
-    color: #E84330;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-/* Ajuste do menu para dispositivos menores */
-@media screen and (max-width: 768px) {
-    nav ul {
-        display: none; /* Oculta o menu padrão */
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: #352616;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    nav ul li {
-        padding: 10px 0;
-    }
-
-    nav ul li a {
-        color: white;
-        font-size: 18px;
-    }
-
-    .menu-toggle {
-        display: block; /* Exibe o botão de menu no mobile */
-    }
-
-    .menu-open {
-        display: flex; /* Exibe o menu ao clicar */
-    }
-}
-
-/* Ajuste para telas menores */
-@media screen and (max-width: 768px) {
-    .page-wrapper, .content-wrapper {
-        width: 100%;
-        padding: 0 15px; /* Mantém espaçamento */
-    }
-
-    /* Centraliza o conteúdo das seções */
-    .scroll-section {
-        padding: 50px 20px;
-        display: flex;
-        text-align: center;
-        flex-direction: column;
-        text-align: center;
-    }
 
     /* Imagens ficam abaixo dos textos */
     .image-container {
@@ -673,8 +631,39 @@ html {
         width: 100%;
         margin-bottom: 15px;
     }
+
     .footer-social {
         flex-direction: row;
         justify-content: center;
     }
+    
+    nav ul {
+        display: none; /* Oculta o menu padrão */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #352616;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        color: white;
+        font-size: 18px;
+    }
+
+    .menu-toggle {
+        display: block; /* Exibe o botão de menu no mobile */
+    }
+
+    .menu-open {
+        display: flex; /* Exibe o menu ao clicar */
+    }
+}
 }
